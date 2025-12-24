@@ -9,10 +9,6 @@ RUN apt-get update && \
 # Install Ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
-# Pull the default model (optional, can be done at runtime)
-ARG MODEL=llama2
-RUN if [ -n "$MODEL" ]; then ollama pull $MODEL; fi
-
 EXPOSE 11434
 
 CMD ["ollama", "serve"]
